@@ -17,7 +17,7 @@ connectDB();
 
 // Default Route
 app.get("/", (req, res) => {
-  res.status(200).send("🍽️ Welcome to the Recipes API");
+  res.status(200).send("🍽️ Welcome to the Recipes API🍽️");
 });
 
 // Routes

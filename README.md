@@ -1,6 +1,4 @@
 
-
-
 # 🍽️ Recipes App Backend
 
 A simple RESTful API built with Node.js, Express, and MongoDB to manage recipes. This API supports creating, reading, updating, and deleting recipes.
@@ -46,7 +44,7 @@ npm install
 ### 3. Create `.env` File
 
 ```env
-PORT=
+PORT=3000
 MONGODB_URL=your_mongodb_connection_string
 ```
 
@@ -84,14 +82,15 @@ All endpoints are prefixed with:
 ```
 
 ### JSON Body (Raw)
-```json
 {
   "name": "Butter Chicken",
   "chef": "Chef Harpal",
   "description": "Creamy tomato-based curry with grilled chicken.",
-  "price": 280
+  "price": 280,
+  "ingredients": ["chicken", "butter", "cream", "spices"],
+  "cookingTime": 45
 }
-```
+
 
 ## 📦 Bulk Insert Example
 
@@ -102,15 +101,20 @@ Send an **array** of recipes to the same `/create` endpoint:
     "name": "Veg Pulao",
     "chef": "Chef Neha",
     "description": "Aromatic basmati rice with mixed vegetables.",
-    "price": 180
+    "price": 180,
+    "ingredients": ["basmati rice", "mixed vegetables", "spices"],
+    "cookingTime": 30
   },
   {
     "name": "Paneer Butter Masala",
     "chef": "Chef Raj",
     "description": "Cottage cheese in creamy tomato gravy.",
-    "price": 220
+    "price": 220,
+    "ingredients": ["paneer", "tomatoes", "cream", "butter", "spices"],
+    "cookingTime": 35
   }
 ]
+
 ```
 
 ## 🛠 Tools Used

@@ -4,7 +4,6 @@ import Recipes from "../Models/RecipeSchema.js";
 export const CreateRecipe = async (req, res) => {
   try {
     const data = req.body;
-    // Check if data is array → use insertMany
     if (Array.isArray(data)) {
       const result = await Recipes.insertMany(data);
       res.status(200).json({ message: "Recipes Added Successfully", data: result });
@@ -17,7 +16,6 @@ export const CreateRecipe = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-
 
 export const getAllRecipes = async (req, res) => {
   try {
@@ -38,18 +36,35 @@ export const getRecipeById = async (req, res) => {
   }
 };
 
+// ✅ Correct ESM-style updateRecipe
 export const updateRecipe = async (req, res) => {
   try {
-    const { name, chef, description, price } = req.body;
-    const updated = await Recipes.findByIdAndUpdate(
-      req.params.id,
-      { name, chef, description, price },
+    const { id } = req.params;
+    const { name, chef, description, price, ingredients, cookingTime } = req.body;
+
+    const updatedRecipe = await Recipes.findByIdAndUpdate(
+      id,
+      {
+        name,
+        chef,
+        description,
+        price,
+        ingredients,
+        cookingTime,
+      },
       { new: true }
     );
-    if (!updated) return res.status(404).json({ message: "Recipe not found" });
-    res.status(200).json({ message: "Recipe updated", data: updated });
+
+    if (!updatedRecipe) {
+      return res.status(404).json({ message: "Recipe not found" });
+    }
+
+    res.status(200).json({
+      message: "Recipe updated",
+      data: updatedRecipe,
+    });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ message: "Error updating recipe", error: error.message });
   }
 };
 
@@ -63,4 +78,3 @@ export const deleteRecipe = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-
