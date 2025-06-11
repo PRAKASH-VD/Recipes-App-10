@@ -33,7 +33,7 @@ Recipes-App/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/recipes-app.git
+git clone https://github.com/PRAKASH-VD/Recipes-App-10
 cd recipes-app
 ```
 
