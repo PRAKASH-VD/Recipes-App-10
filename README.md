@@ -58,6 +58,7 @@ npm start
 
 Server will start on:  
 ```
+https://recipes-app-10.onrender.com/
 http://localhost:5000
 ```
 
@@ -78,9 +79,9 @@ All endpoints are prefixed with:
 
 ### URL FOR API 
 ```
-(https://documenter.getpostman.com/view/39965124/2sB2x5HYir)
-```
 
+```
+https://documenter.getpostman.com/view/39965124/2sB2x5HYir
 ### JSON Body (Raw)
 {
   "name": "Butter Chicken",
